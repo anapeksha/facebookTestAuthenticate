@@ -1,0 +1,10 @@
+#Dependency directory
+
+/node_modules
+#Debug logs
+
+npm-debug.log
+
+.DS_Store
+
+/*.env
