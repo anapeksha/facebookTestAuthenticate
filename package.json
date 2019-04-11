@@ -1,0 +1,25 @@
+{
+  "name": "facebooklogin",
+  "version": "1.0.0",
+  "description": "loggin in with passportjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Anapeksha",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "connect-ensure-login": "^0.1.1",
+    "cookie-parser": "^1.4.4",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "morgan": "^1.9.1",
+    "passport": "^0.4.0",
+    "passport-facebook": "^3.0.0"
+  },
+  "engines": {
+    "node": "10.15.0"
+  }
+}
