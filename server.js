@@ -1,15 +1,18 @@
 var express = require("express");
 var passport = require("passport");
 var Strategy = require("passport-facebook").Strategy;
+var readlineSync = require("readline-sync");
 
 var port = process.env.port || 3000;
 
 passport.use(
   new Strategy(
     {
-      clientID: "433501244067369",
-      clientSecret: "fbecf4b9db2c25f07d7a92fb09bc9b06",
-      callbackURL: "https://facebook-auth-test1.herokuapp.com/login/facebook/callback"
+      clientID: readlineSync.question("May I have your Client ID? "),
+      clientSecret: readlineSync.question("What is your Client Secret? ", {
+        hideEchoBack: true // The typed text on screen is hidden by `*` (default).
+      }),
+      callbackURL: "http://localhost:3000/login/facebook/callback"
     },
     function(accessToken, refreshToken, profile, cb) {
       returncb(null, profile);
@@ -87,5 +90,5 @@ app.get(
 );
 
 app.listen(port, () => {
-  console.log("App is up and running");
+  console.log(`App running at http://localhost:${port}`);
 });
