@@ -2,12 +2,14 @@ var express = require("express");
 var passport = require("passport");
 var Strategy = require("passport-facebook").Strategy;
 
+var port = process.env.port || 3000;
+
 passport.use(
   new Strategy(
     {
       clientID: "433501244067369",
       clientSecret: "fbecf4b9db2c25f07d7a92fb09bc9b06",
-      callbackURL: "http://localhost:3000/login/facebook/return"
+      callbackURL: "https://facebook-auth-test1.herokuapp.com/login/facebook/callback"
     },
     function(accessToken, refreshToken, profile, cb) {
       returncb(null, profile);
@@ -84,6 +86,6 @@ app.get(
   }
 );
 
-app.listen("3000", () => {
-  console.log("App running at http://localhost:3000");
+app.listen(port, () => {
+  console.log("App is up and running");
 });
